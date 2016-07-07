@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+			xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"/>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" />
+<link type="text/css" rel="stylesheet" href="/css/style.css" />
+<title>Titulos</title>
+</head>
+<body>
+	<nav class="navbar navbar-inverse navbar-static-top">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="#"> <img alt="algaworks"
+					src="/images/logo-algaworks.png" />
+				</a>
+			</div>
+		</div>
+	</nav>
+	<div class="panel panel-default">
+			<div class="panel-heading">
+				<h1 class="panel-title">Pesquisa de Títulos</h1>
+			</div>
+			<div class="panel-body">
+				<table class="table table-bordered table-striped table-hover">
+					<thead>
+						<tr>
+							<th class="col-md-1 text-center">#</th>
+							<th>Descrição</th>
+							<th class="col-md-2 text-center">Data Vencimento</th>
+							<th class="col-md-2 text-right">Valor</th>
+							<th class="col-md-2 text-center">Status</th>
+							<th class="col-md-1 text-center">Ações</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="titulo : ${todosTitulos}">
+							<td th:text="${titulo.codigo}" class="text-center"></td>
+							<td th:text="${titulo.descricao}"></td>
+							<td th:text="${titulo.dataVencimento}" class="text-center"></td>
+							<td th:text="${titulo.valor}" class="text-right"></td>
+							<td th:text="${titulo.status}" class="text-center"></td>
+							<td class="text-center">
+								<a href="#">
+									<span class="glyphicon glyphicon-pencil"></span>
+								</a>
+								<a href="#">
+									<span class="glyphicon glyphicon-remove"></span>
+								</a>
+							</td>
+						</tr>
+						<tr th:if="${#strings.isEmpty(titulo.descricao)}">
+							<td colspan="6">Nenhum título foi encontrado...</td>
+						</tr>
+					</tbody>
+				</table>
+			
+			</div>
+	</div>
+	
+	<script type="text/javascript" src="/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+</body>
+</html>

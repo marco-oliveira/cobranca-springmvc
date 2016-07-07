@@ -1,0 +1,16 @@
+@CHARSET "UTF-8";
+
+.navbar-brand{
+	padding-top: 12px;
+}
+
+.alert{
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+
+.panel-default{
+	margin-left: 10px;
+	margin-right: 10px;
+}
