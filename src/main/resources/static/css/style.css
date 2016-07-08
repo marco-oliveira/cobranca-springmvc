@@ -23,10 +23,14 @@
 .aw-titulo-panel{
 	float: left;
 	padding: 2px;
+	font-weight: bold;
 }
 
 .ma-rodape {
-	position:absolute;
-	bottom:0;
-	width:100%
+	padding-top: 10px;
+	text-align: center;
+	color: white;
+	font-style: italic;
 }
+
+

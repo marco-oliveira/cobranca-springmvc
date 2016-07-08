@@ -1,8 +1,8 @@
 package com.algaworks.cobranca.model;
 
 public enum StatusTitulo {
-	RECEBIDO("Recebido"),
-	PENDENTE("Pendente");
+	PENDENTE("Pendente"),
+	RECEBIDO("Recebido");
 	
 	private String descricao;
 	

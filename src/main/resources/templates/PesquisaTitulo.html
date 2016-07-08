@@ -11,7 +11,7 @@
 	<div class="panel panel-default">
 			<div class="panel-heading">
 				<div class="clearfix">
-					<h1 class="panel-title aw-titulo-panel">Pesquisa de Títulos</h1>
+					<h1 class="panel-title aw-titulo-panel ">Pesquisa de Títulos</h1>
 					<a class="btn btn-link aw-link-panel" href="/titulos/novo">novo título</a>
 				</div>
 			</div>
@@ -31,9 +31,12 @@
 						<tr th:each="titulo : ${todosTitulos}">
 							<td th:text="${titulo.codigo}" class="text-center"></td>
 							<td th:text="${titulo.descricao}"></td>
-							<td th:text="${titulo.dataVencimento}" class="text-center"></td>
-							<td th:text="${titulo.valor}" class="text-right"></td>
-							<td th:text="${titulo.status}" class="text-center"></td>
+							<td th:text="${{titulo.dataVencimento}}" class="text-center"></td>
+							<td th:text="|R$ ${{titulo.valor}}|" class="text-right"></td>
+							<td class="text-center">
+								<span class="label " th:text="${titulo.status.descricao} "
+								  th:classappend="${titulo.pendente ? 'label-danger' : 'label-success'}"></span>
+							</td>
 							<td class="text-center">
 								<a href="#">
 									<span class="glyphicon glyphicon-pencil"></span>
@@ -44,7 +47,7 @@
 							</td>
 						</tr>
 						<tr>
-							<td colspan="6">Nenhum título foi encontrado...</td>
+							<td colspan="6" th:if="${#lists.isEmpty(todosTitulos)}">Nenhum título foi encontrado...</td>
 						</tr>
 					</tbody>
 				</table>
